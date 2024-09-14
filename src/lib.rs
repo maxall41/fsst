@@ -1,20 +1,21 @@
 #![doc = include_str!("../README.md")]
 #![cfg(target_endian = "little")]
 
+use lossy_pht::LossyPHT;
+use std::fmt::{Debug, Formatter};
+use std::mem::size_of;
+
+mod builder;
+mod lossy_pht;
+
+pub use builder::*;
+
 /// Throw a compiler error if a type isn't guaranteed to have a specific size in bytes.
 macro_rules! assert_sizeof {
     ($typ:ty => $size_in_bytes:expr) => {
         const _: [u8; $size_in_bytes] = [0; std::mem::size_of::<$typ>()];
     };
 }
-
-use lossy_pht::LossyPHT;
-use std::fmt::{Debug, Formatter};
-
-mod builder;
-mod lossy_pht;
-
-pub use builder::*;
 
 /// `Symbol`s are small (up to 8-byte) segments of strings, stored in a [`Compressor`][`crate::Compressor`] and
 /// identified by an 8-bit code.
