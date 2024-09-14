@@ -3,7 +3,7 @@ use std::fmt::Debug;
 use crate::builder::fsst_hash;
 use crate::Code;
 use crate::Symbol;
-
+use crate::assert_sizeof;
 /// Size of the perfect hash table.
 ///
 /// NOTE: this differs from the paper, which recommends a 64KB total
