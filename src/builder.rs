@@ -7,6 +7,7 @@
 use std::cmp::Ordering;
 use std::collections::BinaryHeap;
 
+#[macro_use]
 use crate::{
     advance_8byte_word, compare_masked, lossy_pht::LossyPHT, Code, Compressor, Symbol,
     FSST_CODE_BASE, FSST_CODE_MASK,
