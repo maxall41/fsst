@@ -16,6 +16,7 @@ macro_rules! assert_sizeof {
         const _: [u8; $size_in_bytes] = [0; std::mem::size_of::<$typ>()];
     };
 }
+pub(crate) use assert_sizeof;
 
 /// `Symbol`s are small (up to 8-byte) segments of strings, stored in a [`Compressor`][`crate::Compressor`] and
 /// identified by an 8-bit code.
